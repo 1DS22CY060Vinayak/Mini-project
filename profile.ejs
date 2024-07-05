@@ -1,0 +1,89 @@
+<!-- profile.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <!-- Navigation links -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="profile">
+            <h2>Profile</h2>
+            <div id="profile-details">
+                <!-- Display user details fetched from backend -->
+                <p><strong>Name:</strong> <span id="name"></span></p>
+                <p><strong>Username:</strong> <span id="username"></span></p>
+                <p><strong>Email:</strong> <span id="email"></span></p>
+                <p><strong>Role:</strong> <span id="role"></span></p>
+                <p><strong>Educational Qualifications:</strong></p>
+                <ul id="educational-qualifications"></ul>
+                <p><strong>Projects:</strong></p>
+                <ul id="projects"></ul>
+            </div>
+            <form id="profile-form">
+                <label for="eduQualifications">Educational Qualifications:</label>
+                <textarea id="eduQualifications" name="educationalQualifications" rows="4"></textarea>
+                <label for="projects">Projects:</label>
+                <textarea id="projects" name="projects" rows="4"></textarea>
+                <button type="submit">Update Profile</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    <script src="app.js"></script>
+    <script>
+        // Fetch user profile data
+        fetch('/api/profile', {
+            method: 'GET',
+            headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('name').textContent = data.name;
+            document.getElementById('username').textContent = data.username;
+            document.getElementById('email').textContent = data.email;
+            document.getElementById('role').textContent = data.role;
+            document.getElementById('eduQualifications').value = data.educationalQualifications.join('\n');
+            document.getElementById('projects').value = data.projects.join('\n');
+        });
+
+        // Update profile form submission
+        document.getElementById('profile-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const educationalQualifications = document.getElementById('eduQualifications').value.split('\n');
+            const projects = document.getElementById('projects').value.split('\n');
+
+            fetch('/api/profile', {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${localStorage.getItem('token')}`
+                },
+                body: JSON.stringify({ educationalQualifications, projects })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                // Optionally, update UI or handle response as needed
+            });
+        });
+    </script>
+</body>
+</html>

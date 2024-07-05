@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="courses.html">Courses</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="chat.html">Chat</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="profile.html">Profile</a></li>
+                <li><a href="teacher_dashboard.html">Teacher Dashboard</a></li>
+                <li><a href="logout.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="assignments">
+            <h2>Assignments and Quizzes</h2>
+            <div id="assignment-list">
+                <!-- Display assignments and quizzes here -->
+            </div>
+            <form id="assignment-form">
+                <h3>Create New Assignment or Quiz</h3>
+                <label for="title">Title:</label>
+                <input type="text" id="title" name="title" required>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" required></textarea>
+                <label for="type">Type:</label>
+                <select id="type" name="type">
+                    <option value="assignment">Assignment</option>
+                    <option value="quiz">Quiz</option>
+                </select>
+                <button type="submit">Create</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p></p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

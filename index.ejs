@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Support Platform</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/courses">Courses</a></li>
+                <li><a href="/resources">Resources</a></li>
+                <li><a href="/chat">Chat</a></li>
+                <li><a href="/feedback">Feedback</a></li>
+                <!-- Conditional display based on user role -->
+                <li id="profile-nav" style="display: none;"><a href="/profile">Profile</a></li>
+                <li id="login-nav"><a href="/login">Login</a></li>
+                <li id="signup-nav"><a href="/signup">Signup</a></li>
+                <!-- Teacher Dashboard link, visible only to teachers -->
+                <li id="teacher-dashboard-nav" style="display: none;"><a href="/teacher_dashboard">Teacher Dashboard</a></li>
+                <!-- Logout link, visible only when logged in -->
+                <li id="logout-nav" style="margin-right: auto;"><a href="/logout">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="hero-content">
+                <h1>Welcome to the College Scholar</h1>
+                <p>Your gateway to personalized and accessible education.</p>
+                <a href="/courses" class="btn">Explore Courses</a>
+            </div>
+        </section>
+
+        <section id="about">
+            <br><br><br>
+            <h2>About Us</h2>
+            <p>We provide a user-friendly platform accessible on various devices, ensuring education is accessible to all students, including those in remote locations and those with disabilities.</p>
+        </section>
+
+        <section id="courses">
+            <h2>Our Courses</h2>
+            <div class="course-list">
+                <div class="course-item">
+                    <img src="https://res.cloudinary.com/dodmcsnv7/image/upload/v1720163784/round-linear-concept-of-dbms-vector-17092023_vxn2wj.jpg" alt="Course 1">
+                    <h3>DataBase Management System</h3>
+                    <p>A DBMS serves as an interface between an end-user and a database, allowing users to create, read, update, and delete data in the database</p>
+                </div>
+                <div class="course-item">
+                    <img src="https://res.cloudinary.com/dodmcsnv7/image/upload/v1720163784/operating-system-logos_m81dft.jpg" alt="Course 2">
+                    <h3>Operating Systems</h3>
+                    <p>Operating systems provide an interface to communicate with the computer without learning the computer's language i.e. machine language</p>
+                </div>
+                <div class="course-item">
+                    <img src="https://res.cloudinary.com/dodmcsnv7/image/upload/v1720163784/daa-tutorial_evnr2f.png" alt="Course 3">
+                    <h3>Analysis and Design of Algorithms</h3>
+                    <p>Design and Algorithm analysis is an important part of computational complexity theory, that provides theoretical estimation for the required resources of an algorithm to solve computational problems</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <form id="contact-form">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>
+            
+        </p>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
